@@ -1,13 +1,13 @@
 require "thor"
 
 class EVAL < Thor
-  desc "analyze LANGUAGE", "run analysis in LANGUAGE"
-  def analyze(language, directory)
-    if language == "PHP"
+  desc "analyze TOOL DIRECTORY", "run analysis with TOOL on DIRECTORY"
+  def analyze(tool, directory)
+    if tool == "PHP"
       system("node phplint/jsphplint.js #{directory}")
-    elsif language == "Churn"
+    elsif tool == "Churn"
       system("churn #{directory}")
-    elsif language == "Ruby"
+    elsif tool == "Ruby"
       system("rubocop #{directory}")
     end
   end
