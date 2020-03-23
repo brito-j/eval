@@ -6,7 +6,7 @@ class EVAL < Thor
     if tool == "PHP"
       system("node phplint/jsphplint.js #{directory}")
     elsif tool == "Churn"
-      system("churn #{directory}")
+      system("cd #{directory} && churn")
     elsif tool == "Ruby"
       system("rubocop #{directory}")
     elsif tool == "OWASP"
