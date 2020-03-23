@@ -9,6 +9,8 @@ class EVAL < Thor
       system("churn #{directory}")
     elsif tool == "Ruby"
       system("rubocop #{directory}")
+    elsif tool == "OWASP"
+      system("java -jar owasp/attack-surface-detector-cli-1.3.5.jar #{directory}")
     end
   end
 end
