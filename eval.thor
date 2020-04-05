@@ -15,4 +15,9 @@ class EVAL < Thor
       system("java -jar checkstyle/checkstyle-8.30-all.jar -c checkstyle/google_checks.xml #{directory}")
     end
   end
+
+  desc "write", "write file test.txt to Google Drive"
+  def write
+    system("cd auth && ruby auth.rb")
+  end
 end
