@@ -25,10 +25,24 @@ def authorize
   credentials
 end
 
+def exists(files)
+  files.each do |f|
+    if f.name == 'output.txt'
+      return f.id
+    end
+  end
+  false
+end
+
 drive_service = Google::Apis::DriveV3::DriveService.new
 drive_service.client_options.application_name = APPLICATION_NAME
 drive_service.authorization = authorize
 
-f_meta = { name: 'test.txt' }
-file = drive_service.create_file(f_meta, fields: 'id', upload_source: 'test.txt', content_type: 'text/plain')
-puts "File Id: #{file.id}"
+files = drive_service.list_files(q: 'trashed=false').files
+if exists(files)
+  drive_service.delete_file(exists(files))
+end
+
+f_meta = { name: 'output.txt' }
+file = drive_service.create_file(f_meta, fields: 'webViewLink', upload_source: '../output/output.txt', content_type: 'text/plain')
+puts "#{file.web_view_link}"
