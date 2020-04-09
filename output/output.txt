@@ -1,0 +1,90 @@
+PHPLINT
+-------
+
+Parse error: syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in test/bad.php on line 3
+Errors parsing test/bad.php
+ 
+CHURN
+-----
+**********************************************************************
+* Revision Changes 
+**********************************************************************
+Files
++---------------+
+| file          |
++---------------+
+| .gitignore    |
+| auth/auth.rb  |
+| auth/test.txt |
+| eval.thor     |
++---------------+
+
+
+
+**********************************************************************
+* Project Churn 
+**********************************************************************
+
+Files
++-----------+---------------+
+| file_path | times_changed |
++-----------+---------------+
+| eval.thor | 11            |
++-----------+---------------+
+
+
+RUBOCOP
+-------
+Inspecting 1 file
+C
+
+Offenses:
+
+test/bad.rb:1:1: C: Style/FrozenStringLiteralComment: Missing magic comment # frozen_string_literal: true.
+def badName
+^
+test/bad.rb:1:5: C: Naming/MethodName: Use snake_case for method names.
+def badName
+    ^^^^^^^
+test/bad.rb:2:3: C: Style/GuardClause: Use a guard clause (return unless something) instead of wrapping the code inside a conditional expression.
+  if something
+  ^^
+test/bad.rb:2:3: C: Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+  if something
+  ^^
+
+1 file inspected, 4 offenses detected
+
+OWASP
+-----
+Beginning endpoint detection for 'C:\Users\jason\eval\test' with 0 framework types
+No endpoints were found.
+Successfully validated serialization for these endpoints
+0 endpoints were missing code start line
+0 endpoints were missing code end line
+0 endpoints had the same code start and end line
+Generated 0 distinct parameters
+Generated 0 total parameters
+- 0/0 have their data type
+- 0/0 have a list of accepted values
+- 0/0 have their parameter type
+Finished endpoint detection for 'C:\Users\jason\eval\test'
+----------
+-- DONE --
+0 projects had duplicate endpoints
+Generated 0 distinct endpoints
+Generated 0 total endpoints
+Generated 0 distinct parameters
+Generated 0 total parameters
+0/1 projects had endpoints generated
+The following projects were missing endpoints:
+--- C:\Users\jason\eval\test
+To enable logging include the -debug argument
+
+CHECKSTYLE
+----------
+Starting audit...
+[WARN] C:\Users\jason\eval\test\bad.java:1:14: Type name 'bad' must match pattern '^[A-Z][a-zA-Z0-9]*$'. [TypeName]
+[WARN] C:\Users\jason\eval\test\bad.java:1:55: Array brackets at illegal position. [ArrayTypeStyle]
+[WARN] C:\Users\jason\eval\test\bad.java:1:63: '}' at column 63 should be alone on a line. [RightCurlyAlone]
+Audit done.
