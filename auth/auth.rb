@@ -43,6 +43,13 @@ if exists(files)
   drive_service.delete_file(exists(files))
 end
 
-f_meta = { name: 'output.txt' }
-file = drive_service.create_file(f_meta, fields: 'webViewLink', upload_source: '../output/output.txt', content_type: 'text/plain')
+file_metadata = {
+    name: 'Code Review Report',
+    mime_type: 'application/vnd.google-apps.document'
+}
+
+file = drive_service.create_file(file_metadata,
+                                 fields: 'webViewLink',
+                                 upload_source: '../output/output.txt',
+                                 content_type: 'text/plain')
 puts "#{file.web_view_link}"
