@@ -1,1 +1,0 @@
-{"churn":{"changes":[{"file_path":"eval.thor","times_changed":11}],"class_churn":[],"method_churn":[],"changed_files":[".gitignore","auth/auth.rb","auth/test.txt","eval.thor"],"changed_classes":[],"changed_methods":[]}}
